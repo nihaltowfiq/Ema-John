@@ -1,0 +1,29 @@
+.header img{
+    width: 200px;
+}
+.header{
+    text-align: center;
+}
+.header ul{
+    background-color: black;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 20px;
+    line-height: 40px;
+}
+.header ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 10px;
+}
+.header ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+}
+.header ul li:hover{
+    background-color: darkgray;
+}
+.header ul li:hover a{
+    color: black;
+}
