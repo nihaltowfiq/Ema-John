@@ -12,11 +12,12 @@
 .product-details{
     margin-left: 10px;
 }
-.add-btn{
+.main-btn{
     background-color: goldenrod;
     width: 180px;
     height: 25px;
     border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
 }

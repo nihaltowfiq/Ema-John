@@ -7,7 +7,7 @@ const Cart = (props) => {
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
         const product = cart[i];
-        total = total + product.price;
+        total = total + product.price * product.quantity;
     }
     let shipping = 0;
     if (total === 0) {
@@ -34,6 +34,9 @@ const Cart = (props) => {
             <br/>
             <small>Tax: ${tax.toFixed(2)}</small>
             <h4>Grand Total: ${grandTotal.toFixed(2)}</h4>
+            {
+                props.children
+            }
         </div>
     );
 };
