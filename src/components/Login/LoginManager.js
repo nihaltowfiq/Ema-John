@@ -82,4 +82,4 @@ export const handleGoogleSignIn = () => {
       newUserInfo.success = false;
       return newUserInfo;
     });
-  }
+  };

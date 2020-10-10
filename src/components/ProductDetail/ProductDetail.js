@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import fakeData from '../../fakeData';
 import Product from '../Product/Product';
 
 const ProductDetail = () => {
-    const {productKey} = useParams();
-    const product = fakeData.find(pd => pd.key === productKey);
-    console.log(product);
+    const { productKey } = useParams();
+    const [loading, setLoading] = useState(true)
+    const [product, setProduct] = useState({});
+    useEffect(() => {
+        fetch(`https://mighty-reef-39398.herokuapp.com/product/${productKey}`)
+            .then(res => res.json())
+            .then(data => {
+                setLoading(false);
+                setProduct(data)
+            })
+    }, [productKey]);
     return (
         <div>
             <h1>Your Product Details.</h1>
-            <Product showAddToCart={false} product={product}></Product>
+            {
+                loading ? <Spinner animation="border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>
+                    : <Product showAddToCart={false} product={product}></Product>
+            }
         </div>
     );
 };

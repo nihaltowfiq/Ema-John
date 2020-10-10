@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getDatabaseCart, removeFromDatabaseCart, processOrder } from '../../utilities/databaseManager';
-import fakeData from '../../fakeData';
+import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../Cart/Cart';
 import happyImage from '../../images/giphy.gif';
@@ -12,12 +11,14 @@ const Review = () => {
     useEffect(()=> {
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart)
-        const cartProducts = productKeys.map(key => {
-            const product = fakeData.find(pd => pd.key === key)
-            product.quantity = savedCart[key]
-            return product;
-        });
-        setCart(cartProducts);
+
+        fetch('https://mighty-reef-39398.herokuapp.com/productsBykeys', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(productKeys)
+        })
+        .then(res => res.json())
+        .then(data => setCart(data));
     }, []);
 
     const handleRemoveItem = (productKey) => {
