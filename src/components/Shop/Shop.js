@@ -4,20 +4,23 @@ import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import { Link } from 'react-router-dom';
-import { Spinner } from 'react-bootstrap';
+import { Button, Form, FormControl, InputGroup, Spinner } from 'react-bootstrap';
 
 const Shop = () => {
     // const first10 = fakeData.slice(0, 10);
     // const [products, setProducts] = useState(first10);
 
     const [products, setProducts] = useState([]);
+    const [search, setSearch] = useState('');
+    const [searchInput, setSearchInput] = useState('');
+    
     useEffect(() => {
-        fetch('https://mighty-reef-39398.herokuapp.com/products')
+        fetch('https://mighty-reef-39398.herokuapp.com/products?search=' + search)
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
             })
-    }, []);
+    }, [search]);
 
     useEffect(() => {
         const savedCart = getDatabaseCart();
@@ -49,10 +52,34 @@ const Shop = () => {
         }
         setCart(newCart);
         addToDatabaseCart(product.key, count);
-    }
+    };
+
+    const handleSearch = event => {
+        event.preventDefault();
+        setSearch(searchInput);
+        console.log('clicked');
+    };
+    const handleBlur = e => {
+        const newSetSearchInput = e.target.value;
+        setSearchInput(newSetSearchInput)
+    };
     return (
         <div className='twin-container'>
             <div className="product-container">
+                {/* <input type="text" onBlur={handleSearch}/> */}
+                <Form onSubmit={handleSearch}>
+                    <InputGroup size="lg" className="mb-3 mt-2 pr-1 search-bar">
+                        <FormControl
+                            onBlur={handleBlur}
+                            placeholder="Search..."
+                            aria-label="Recipient's username"
+                            aria-describedby="basic-addon2"
+                        />
+                        <InputGroup.Append>
+                            <Button variant="primary" type="submit">Search</Button>
+                        </InputGroup.Append>
+                    </InputGroup>
+                </Form>
                 {
                     products.length === 0 &&
                     <Spinner animation="border" role="status">

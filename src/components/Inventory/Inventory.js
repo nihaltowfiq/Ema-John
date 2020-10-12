@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Container } from 'react-bootstrap';
-import fakeData from '../../fakeData';
 
 const Inventory = () => {
     const handleAddProduct = () => {

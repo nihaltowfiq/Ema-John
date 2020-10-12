@@ -2,7 +2,6 @@ import React from 'react';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import PaymentCard from './PaymentCard';
-import SplitPaymentCard from './SplitPaymentCard';
 
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
