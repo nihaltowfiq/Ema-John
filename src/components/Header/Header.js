@@ -15,7 +15,7 @@ const Header = () => {
                 <li><Link to="/inventory">Manage Inventory</Link></li>
                 <span style={{ color: 'goldenrod' }}>{loggedInUser.name}</span>
                 {
-                    loggedInUser.email ? <li><Link to="" onClick={() => setLoggedInUser({})}>Sign Out</Link></li>
+                    (loggedInUser.email || sessionStorage.getItem('token')) ? <li><Link to="" onClick={() => setLoggedInUser({})}>Sign Out</Link></li>
                         : <li><Link to="/login">Sign In</Link></li>
                 }
             </ul>
