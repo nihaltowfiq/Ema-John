@@ -16,7 +16,7 @@ const Shipment = () => {
   };
   const handlePaymentSuccess = paymentId => {
     const savedCart = getDatabaseCart();
-    const orderDetails = { ...loggedInUser, products: savedCart, shipment: shippingData, orderTime: new Date() };
+    const orderDetails = { ...loggedInUser, products: savedCart, shipment: shippingData, payment: paymentId, orderTime: new Date() };
     fetch('https://mighty-reef-39398.herokuapp.com/addOrder', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
