@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { UserContext } from '../../App';
 import { getDatabaseCart, processOrder } from '../../utilities/databaseManager';
@@ -7,7 +6,7 @@ import ProcessPayment from '../ProcessPayment/ProcessPayment';
 import './Shipment.css';
 
 const Shipment = () => {
-	const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+	const [loggedInUser] = useContext(UserContext);
 	const { register, handleSubmit, errors } = useForm();
 	const [shippingData, setShippingData] = useState(null);
 

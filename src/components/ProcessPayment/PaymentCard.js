@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 const PaymentCard = ({ handlePayment }) => {

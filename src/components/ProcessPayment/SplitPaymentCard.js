@@ -1,6 +1,5 @@
-import React, { useMemo } from 'react';
-import { useStripe, useElements, CardNumberElement, CardCvcElement, CardExpiryElement } from '@stripe/react-stripe-js';
-
+import { CardCvcElement, CardExpiryElement, CardNumberElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useMemo } from 'react';
 // import useResponsiveFontSize from "../../useResponsiveFontSize";
 import { Button } from 'react-bootstrap';
 

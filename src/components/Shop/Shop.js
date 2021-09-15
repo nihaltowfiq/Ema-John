@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import './Shop.css';
-import Product from '../Product/Product';
-import Cart from '../Cart/Cart';
-import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Button, Form, FormControl, InputGroup, Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
+import Cart from '../Cart/Cart';
+import Product from '../Product/Product';
+import './Shop.css';
 
 const Shop = () => {
 	// const first10 = fakeData.slice(0, 10);

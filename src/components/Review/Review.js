@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
-import ReviewItem from '../ReviewItem/ReviewItem';
-import Cart from '../Cart/Cart';
-import happyImage from '../../images/giphy.gif';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import happyImage from '../../images/giphy.gif';
+import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
+import Cart from '../Cart/Cart';
+import ReviewItem from '../ReviewItem/ReviewItem';
 
 const Review = () => {
 	const [cart, setCart] = useState([]);

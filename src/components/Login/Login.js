@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react';
-import { UserContext } from '../../App';
+import { useContext, useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom';
+import { UserContext } from '../../App';
 import {
 	createUserWithEmailAndPassword,
 	handleFbSignIn,
@@ -9,7 +10,6 @@ import {
 	initializeLoginFramework,
 	signInWithEmailAndPassword,
 } from './LoginManager';
-import { Button, Form } from 'react-bootstrap';
 
 function Login() {
 	const [newUser, setNewUser] = useState(false);

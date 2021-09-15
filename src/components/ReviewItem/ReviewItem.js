@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ReviewItem = (props) => {
 	const { name, quantity, key, price } = props.product;
 	const reviewItemStyle = {
