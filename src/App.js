@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Inventory from './components/Inventory/Inventory';
@@ -10,13 +10,9 @@ import Review from './components/Review/Review';
 import Shipment from './components/Shipment/Shipment';
 import Shop from './components/Shop/Shop';
 
-export const UserContext = createContext();
-
 function App() {
-	const [loggedInUser, setLoggedInUser] = useState({});
-
 	return (
-		<UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+		<Fragment>
 			<Header></Header>
 			<Switch>
 				<Route path="/shop" component={Shop} />
@@ -32,7 +28,7 @@ function App() {
 				<Route path="/product/:productKey" component={ProductDetail} />
 				<Route path="*" component={NotFound} />
 			</Switch>
-		</UserContext.Provider>
+		</Fragment>
 	);
 }
 
