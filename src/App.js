@@ -13,15 +13,15 @@ import Shop from './components/Shop/Shop';
 function App() {
 	return (
 		<Fragment>
-			<Header></Header>
+			<Header />
 			<Switch>
 				<Route path="/shop" component={Shop} />
 				<Route path="/review" component={Review} />
 				<PrivateRoute path="/inventory">
-					<Inventory></Inventory>
+					<Inventory />
 				</PrivateRoute>
 				<PrivateRoute path="/shipment">
-					<Shipment></Shipment>
+					<Shipment />
 				</PrivateRoute>
 				<Route path="/login" component={Login} />
 				<Route exact path="/" component={Shop} />
